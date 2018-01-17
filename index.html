@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Storage Example</title>
+  <meta charset="utf-8" />
+  <script src="jquery.min.js"></script>
+</head>
+
+<body>
+
+<h1>Storage Example</h1>
+
+<div id="main">
+    <span id="loader">Loading...</span>
+    <div id="apikey"></div>
+    <div id="apikey_request">
+        <input type="text" id="ak" placeholder="your API key" />
+        <input type="button" value="set" id="akb" />
+    </div>
+</div>
+
+<hr />
+<a id="akr" href="#">Reset API key</a>
+</body>
+
+  <script>
+    
+  var apikey;
+
+
+  function checkApikey() {
+    apikey = localStorage.getItem("apikey");
+    if (apikey) {
+       $("#apikey").text(apikey);
+       $("#apikey_request").hide();
+       $("#akr").show();
+    }
+    else {
+       $("#apikey").text(""); 
+       $("#ak").val("");
+       $("#apikey_request").show();
+       $("#akr").hide();
+       console.log("hidd");
+    }
+  }
+
+  
+  $( document ).ready(function() {
+    if (typeof(Storage)!=="undefined") {
+       // the browser supports local and session storage...
+       $("#loader").hide();
+       
+       $("#akr").click(function() {
+           localStorage.removeItem("apikey");
+           $("#apikey_request").hide();
+       });
+
+       $("#akr").click(function() {
+           localStorage.removeItem("apikey");
+           $("#apikey_request").hide();
+           checkApikey();
+       });
+       
+       $("#akb").click( function() {
+           apikey = $("#ak").val();
+           localStorage.setItem("apikey", apikey);
+           $("#apikey").text(apikey);
+           $("#apikey_request").hide();
+           checkApikey();
+       } );
+
+       checkApikey();
+
+    }
+    else {
+       $("#loader").text("Sorry, this browser is not supported.");
+    }
+  });
+
+  </script>
+
+</html>
