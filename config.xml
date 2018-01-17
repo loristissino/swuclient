@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "it.tissino.swu"
+    versionCode = "10"
+    version     = "0.0.1" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>JS SWU Demo Client</name>
+
+  <description>
+      A demo example for the SWU application.
+  </description>
+
+  <author href="http://loris.tissino.it" email="loris.tissino@gmail.com">
+      Loris Tissino
+  </author>
+
+</widget>
